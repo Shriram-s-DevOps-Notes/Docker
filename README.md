@@ -4,7 +4,7 @@
 https://docs.docker.com/engine/install/
 ```
 You can also install docker using the below pre-written shell script on 
-https://get.docker.com/ **
+https://get.docker.com/ 
 ```
 curl -fsSL https://get.docker.com -o get-docker.sh
 ```
