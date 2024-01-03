@@ -13,9 +13,9 @@ Now run the script
 sh get-docker.sh
 ```
 - For detailed information about installation click on the below link
-```
+
 https://docs.docker.com/engine/install/
----
+
 - A container is the standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.
 - Containers are OS-level virtualization technology that is used to package applications and their dependencies and run them in isolated environments.
 - They provide a lightweight method of packaging and deploying applications in a standardized way across many different types of infrastructure.
