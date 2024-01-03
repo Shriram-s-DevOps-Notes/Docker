@@ -73,7 +73,7 @@
     [root@ip-172-31-89-143 ~]#
     ```
     
-    ![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/1379bcf2-cfa6-4f29-9d2e-f6d4bb9cc6b8)
+  ![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/1379bcf2-cfa6-4f29-9d2e-f6d4bb9cc6b8)
 
     
 - To know about particular networking details
@@ -145,21 +145,20 @@
     ----
 ### Bridged networks
 ----    
-    **WHENEVER YOU CREATE THE NETWORK WITHOUT DEFINING THE NETWORK TYPE AUTOMATICALLY THE DRIVER WILL BE CREATED IN BRIDGED NETWORK**
+- **WHENEVER YOU CREATE THE NETWORK WITHOUT DEFINING THE NETWORK TYPE AUTOMATICALLY THE DRIVER WILL BE CREATED IN BRIDGED NETWORK**
     
-    A bridge network uses a software bridge that allows containers connected to the same bridge network to communicate while providing isolation from containers that are not connected to that bridge network.
+- A bridge network uses a software bridge that allows containers connected to the same bridge network to communicate while providing isolation from containers that are not connected to that bridge network.
     
-    ![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/203794ea-f0ec-4ff5-9031-c05a861cbf8d)
+![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/203794ea-f0ec-4ff5-9031-c05a861cbf8d)
 
-    To check the details about the container run the below command
+- To check the details about the container run the below command
     
      
-    
     ```bash
     docker container inspect shriram
     ```
     
-    Under the network section, you can see it's a Bridged type connection.
+- Under the network section, you can see it's a Bridged type connection.
     
     ```bash
     [root@ip-172-31-89-143 ~]# docker container inspect shriram
