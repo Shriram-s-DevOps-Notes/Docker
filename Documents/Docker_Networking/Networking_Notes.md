@@ -1,7 +1,7 @@
 # DOCKER NETWORKING
-
+----
 - **Overview of Docker Networking**
-    
+ ----   
     
     The Docker networking subsystem is pluggable, using drivers.
     
@@ -142,9 +142,9 @@
     ```bash
     docker container run -dt --name shriram --network host nginx
     ```
-    
+    ----
 ### Bridged networks
-    
+----    
     **WHENEVER YOU CREATE THE NETWORK WITHOUT DEFINING THE NETWORK TYPE AUTOMATICALLY THE DRIVER WILL BE CREATED IN BRIDGED NETWORK**
     
     A bridge network uses a software bridge that allows containers connected to the same bridge network to communicate while providing isolation from containers that are not connected to that bridge network.
@@ -617,9 +617,9 @@
             "Labels": {}
         }
     ```
-    
+----    
 ### Host Network
-    
+ ----   
     This driver removes the network isolation between the docker host and the docker containers to use the host’s networking directly.
     
     For instance, if you run a container that binds to port 80 and you use host networking, the container’s application will be available on port 80 on the host’s IP address.
@@ -632,9 +632,9 @@
 
     
     Another great advantage of the host network is in the bridge network every container has different eth0 and IP’s this is not good while installing the intrusion detection system.
-    
+----    
 ### None Network
-    
+----   
     If you want to completely disable the networking stack on a container, you can use the none network.
     
     This mode will not configure any IP for the container and doesn’t have any access to the external network as well as for other containers.
@@ -695,9 +695,9 @@
     
     ![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/817d10a5-41d7-4b13-a043-8dba6d70f88e)
 
-    
+----   
 ### Publishing Exposed Ports of Container
-    
+----    
     We were discussing an approach to publishing container ports to the host.
     
     ```python
@@ -732,9 +732,9 @@
     The main advantage of this is we can connect the 2 containers like custom bridged networks.
     
     This is the oldest approach to the connecting bridged network. Now we have a custom bridged network. So no use of this noe.
-
+----
 - **What is Round robin DNS ?**
-
+----
 - Round Robin DNS is a technique used in network management where multiple IP addresses are associated with a single domain name in the DNS records. When a user tries to connect to the domain, the DNS server responds with one of these IP addresses, rotating through them in a circular order. This method is often used for load balancing and fault tolerance.
 
 Here's how it works:
