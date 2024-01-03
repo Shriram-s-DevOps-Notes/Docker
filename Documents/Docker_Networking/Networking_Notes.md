@@ -278,9 +278,9 @@
     For the demo, we will create containers of Ubuntu
     
     ```bash
-    [root@ip-172-31-89-143 ~]# **docker container run -dt --name bridge1 ubuntu**
+    [root@ip-172-31-89-143 ~]# docker container run -dt --name bridge1 ubuntu
     df86319bd079e75c55d71c9fece154d3f584a4c4bacd455fa7057e58560587ef
-    [root@ip-172-31-89-143 ~]# **docker container run -dt --name bridge2 ubuntu**
+    [root@ip-172-31-89-143 ~]# docker container run -dt --name bridge2 ubuntu
     7b2b76e44a355f9fb919d2793d9d6f645ab441fccc0fef15402464d77b15a5d6
     
     root@ip-172-31-89-143 ~]# docker ps
