@@ -137,7 +137,7 @@
     
     We have container IP "IPv4Address": "172.17.0.2/16", and Gateway IP  **"Gateway": "172.17.0.1". This means if the container wants to communicate with the internet it should contact the gateway.** 
     
-    Suppose you want to run the container specifically on one driver you can define it during installation
+    Suppose you want to run the container specifically on one driver you can define it during the installation
     
     ```bash
     docker container run -dt --name shriram --network host nginx
@@ -469,7 +469,7 @@
     To create the new driver
     
     ```python
-     **docker network create --driver <driver> <name>**
+     docker network create --driver <driver> <name>
     ```
     
     The new bridge is created. Even if you did not specify the driver type by default bridge will be selected.
@@ -544,7 +544,7 @@
     Let’s create a container using the new bridge
     
     ```python
-    docker container run --name bridge1 --network **mybridge ubuntu**
+    docker container run --name bridge1 --network **mybridge ubuntu
     ```
     
     Now we launched 2 containers.
@@ -701,7 +701,7 @@
     We were discussing an approach to publishing container ports to the host.
     
     ```python
-    **docker container run -dt --name webserver -p 80:80 nginx**
+    docker container run -dt --name webserver -p 80:80 nginx
     ```
     
     This is also referred to as a publishlist(-p) as it publishes only a list of the port specified.
@@ -709,7 +709,7 @@
     There is also a second approach to publish all the exposed ports of the container.
     
     ```python
-    **docker container run -dt --name webserver -P nginx**
+    docker container run -dt --name webserver -P nginx
     ```
     
     This is also referred to as a publishall (P).
