@@ -15,4 +15,3 @@ sh get-docker.sh
 - For detailed information about installation click on the below link
 ```
 https://docs.docker.com/engine/install/
-'''
