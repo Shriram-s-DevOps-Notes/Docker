@@ -15,7 +15,10 @@
     
     In VM also we can observe the different type of networks
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/fc65daab-c55b-4b80-84ac-923cb39e7a7e/1d352e00-a32e-4203-9105-3322fc2efd6c/Untitled.png)
+    ![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/54f593d6-d22c-4824-9f62-a23f66e62204)
+![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/cccb2114-da2a-478d-8ea8-be35bf0142c8)
+![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/e4355224-1b49-47e8-8257-cd49fe007ff7)
+
     
     When you run ifconfig on docker-machine other than system network settings you can also see networking details of **docker0**
     
