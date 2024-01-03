@@ -1,25 +1,25 @@
 # DOCKER NETWORKING
 ----
-- **Overview of Docker Networking**
+### Overview of Docker Networking
  ----   
     
-    The Docker networking subsystem is pluggable, using drivers.
+- The Docker networking subsystem is pluggable, using drivers.
     
-    There are several drivers available by default and provides core networking functionality.
+- There are several drivers available by default and provides core networking functionality.
     
-    - bridge
-    - host
-    - overlay =⇒ For docker enterprises
-    - macvlan
-    - none
+1. bridge
+2. host
+3. overlay =⇒ For docker enterprises
+4. macvlan
+5. none
     
-    In VM also we can observe the different type of networks
+- In VM also we can observe the different type of networks
     
     ![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/54f593d6-d22c-4824-9f62-a23f66e62204)
 
     
-    When you run ifconfig on docker-machine other than system network settings you can also see networking details of **docker0**
-    
+- When you run ifconfig on docker-machine other than system network settings you can also see networking details of **docker0**
+  
     ```bash
     [root@ip-172-31-89-143 ~]# ifconfig
     **docker0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
@@ -60,9 +60,9 @@
     [root@ip-172-31-89-143 ~]#
     ```
     
-    When you want to know about drivers in docker run the below command
+- When you want to know about drivers in docker run the below command
     
-    Since we are using the community edition we only have 3 drivers.
+- Since we are using the community edition we only have 3 drivers.
     
     ```bash
     [root@ip-172-31-89-143 ~]# **docker network ls**
@@ -76,9 +76,9 @@
     ![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/1379bcf2-cfa6-4f29-9d2e-f6d4bb9cc6b8)
 
     
-    To know about particular networking details
+- To know about particular networking details
     
-    Currently, we have only one container so it is showing details of one container
+- Currently, we have only one container so it is showing details of one container
     
     ```bash
     [root@ip-172-31-89-143 ~]# **docker inspect bridge**
@@ -130,14 +130,14 @@
     [root@ip-172-31-89-143 ~]#
     ```
     
-    Suppose you have multiple containers that can be identified by the container IP
+- Suppose you have multiple containers that can be identified by the container IP
     
    ![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/ae1a4d69-179d-4885-b2bc-182224bb732c)
 
     
-    We have container IP "IPv4Address": "172.17.0.2/16", and Gateway IP  **"Gateway": "172.17.0.1". This means if the container wants to communicate with the internet it should contact the gateway.** 
+- We have container IP "IPv4Address": "172.17.0.2/16", and Gateway IP  **"Gateway": "172.17.0.1". This means if the container wants to communicate with the internet it should contact the gateway.** 
     
-    Suppose you want to run the container specifically on one driver you can define it during the installation
+- Suppose you want to run the container specifically on one driver you can define it during the installation
     
     ```bash
     docker container run -dt --name shriram --network host nginx
@@ -275,7 +275,7 @@
     
 - As the above image shows the containers can communicate with each other
     
-    For the demo, we will create containers of Ubuntu
+- For the demo, we will create containers of Ubuntu
     
     ```bash
     [root@ip-172-31-89-143 ~]# docker container run -dt --name bridge1 ubuntu
@@ -292,11 +292,11 @@
     [root@ip-172-31-89-143 ~]#
     ```
     
-    Now let's log in to the container.
+- Now let's log in to the container.
     
-    After login install net-tools 
+- After login install net-tools 
     
-    Run ifconfig
+- Run ifconfig
     
     ```bash
     [root@ip-172-31-89-143 ~]# docker container exec -it bridge1 bash
@@ -357,19 +357,19 @@
     root@df86319bd079:/#
     ```
     
-    Now exit from 1st container and check the IP of the 2nd container
+- Now exit from 1st container and check the IP of the 2nd container
     
-    IP of 2nd container is 172.17.0.4
+- IP of 2nd container is 172.17.0.4
     
-    Again log to container 1
+- Again log to container 1
     
-    Install iputils-ping
+- Install iputils-ping
     
     ```bash
     apt install iputils-ping
     ```
     
-    Now ping the 2nd container from the 1st container
+- Now ping the 2nd container from the 1st container
     
     ```bash
     root@df86319bd079:/# ping 172.17.0.4
@@ -388,9 +388,9 @@
     root@df86319bd079:/#
     ```
     
-    Every time to ping outside or inside the containers must pass through the gateway
+- Every time to ping outside or inside the containers must pass through the gateway
     
-    to check that run the below command
+- to check that run the below command
     
     ```bash
     route -n
@@ -405,23 +405,23 @@
     root@df86319bd079:/#
     ```
     
-    Bridge is the default network driver for Docker.
+- Bridge is the default network driver for Docker.
     
-    If we do not specify a driver,  this is the type of network you are creating.
+- If we do not specify a driver,  this is the type of network you are creating.
     
-    When you start Docker, a default bridge network (also called a bridge) is created automatically, and newly-started containers connect to it unless otherwise specified.
+- When you start Docker, a default bridge network (also called a bridge) is created automatically, and newly-started containers connect to it unless otherwise specified.
     
-    We also can create a User-Defined Bridge Network which is superior to the default bridge.
+- We also can create a User-Defined Bridge Network which is superior to the default bridge.
     
 - **Implementing User-Defined Bridge Networks**
     
-    To check what are the bridge-utils are present
+- To check what are the bridge-utils are present
     
     ```python
     yum install -y bridge-utils
     ```
     
-    Then run the below command
+- Then run the below command
     
     ```python
     brctl show
@@ -436,43 +436,43 @@
                                                             veth928bc32
     ```
     
-    Currently, there are 3 bridges. This is the reason for the intercommunication between the bridges. 
+- Currently, there are 3 bridges. This is the reason for the intercommunication between the bridges. 
     
-    3-bridges means 3 containers are running in the same container.
+- 3-bridges means 3 containers are running in the same container.
     
     ![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/d4489371-b871-4277-bf91-ca33b307e8f4)
 
     
-    There are differences between default and user-defined bride. Some of these include:
+- There are differences between default and user-defined bride. Some of these include:
     
-    - User-defined bridges provide better isolation and interoperability between containerized applications.
-    - **User-defined bridges provide automatic DNS resolution between containers.**
+1. User-defined bridges provide better isolation and interoperability between containerized applications.
+2.  **User-defined bridges provide automatic DNS resolution between containers.**
+
+- This means we ping the container using the DNS name or container name. This feature is not available in default container bridges.
+
+  EX: U have 2 container container_1 & container container_2 having custom bridge network. Now you login to container 1 and you can ping container 2 using its name.
     
-    This means we ping the container using the DNS name or container name. This feature is not available in default container bridges.
-    
-    EX: U have 2 container container_1 & container container_2 having custom bridge network. Now you login to container 1 and you can ping container 2 using its name.
-    
-    But this is impossible in the default bridge.
+- But this is impossible in the default bridge.
     
     ```python
     ping container_2
     ```
     
-    - Containers can be attached and detached from user-defined networks on the fly.
-    - Each user-defined network creates a configurable bridge.
-    - Linked containers on the default bridge network share environmental variables
+- Containers can be attached and detached from user-defined networks on the fly.
+- Each user-defined network creates a configurable bridge.
+- Linked containers on the default bridge network share environmental variables
     
-    To create the new user-defined bridges
+- To create the new user-defined bridges
     
-    1. The Name can be anything and the Driver should be the important point
+1. The Name can be anything and the Driver should be the important point
     
-    To create the new driver
+- To create the new driver
     
     ```python
      docker network create --driver <driver> <name>
     ```
     
-    The new bridge is created. Even if you did not specify the driver type by default bridge will be selected.
+- The new bridge is created. Even if you did not specify the driver type by default bridge will be selected.
     
     ```python
     [root@ip-172-31-89-143 ~]# docker network ls
@@ -493,7 +493,7 @@
     
     ```
     
-    Now if you do ifconfig you can see the driver. The first one is the new driver.
+- Now if you do ifconfig you can see the driver. The first one is the new driver.
     
     ```python
     [root@ip-172-31-89-143 ~]# ifconfig
@@ -541,13 +541,13 @@
             TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
     ```
     
-    Let’s create a container using the new bridge
+- Let’s create a container using the new bridge
     
     ```python
     docker container run --name bridge1 --network **mybridge ubuntu
     ```
     
-    Now we launched 2 containers.
+- Now we launched 2 containers.
     
     ```python
     [root@ip-172-31-89-143 ~]# docker container run -dt --name bridge123 --network mybridge ubuntu
@@ -568,7 +568,7 @@
     1561655e68f8   nix       "nginx -g 'daemon of…"   4 hours ago     Up 4 hours               ng
     ```
     
-    From the below, you can see that the what are all the networks are connected to the bridge.
+- From the below, you can see that the what are all the networks are connected to the bridge.
     
     ```python
     [root@ip-172-31-89-143 ~]# docker network inspect mybridge
@@ -635,13 +635,13 @@
 ----    
 ### None Network
 ----   
-    If you want to completely disable the networking stack on a container, you can use the none network.
+- If you want to completely disable the networking stack on a container, you can use the none network.
     
-    This mode will not configure any IP for the container and doesn’t have any access to the external network as well as for other containers.
+- This mode will not configure any IP for the container and doesn’t have any access to the external network as well as for other containers.
     
-    The same specifications can be seen in VM where we can see that the containers are isolated because we are doing malware testing so that the virus can not escape the server.
+- The same specifications can be seen in VM where we can see that the containers are isolated because we are doing malware testing so that the virus can not escape the server.
     
-    Let’s create the none network for practical
+- Let’s create the none network for practical
     
     ```python
     [root@ip-172-31-44-56 ~]# docker container run -dt --name nonetest --network none ubuntu
@@ -656,7 +656,7 @@
     cad8cee67e1c   3f045a715e22   "/bin/bash"   7 hours ago     Up 7 hours                         ca
     ```
     
-    Let's get inside the container. But we are not able to connect the server because of the no internet connectivity. We can open the container but we can not be able to connect the internet.
+- Let's get inside the container. But we are not able to connect the server because of the no internet connectivity. We can open the container but we can not be able to connect the internet.
     
     ```python
     [root@ip-172-31-44-56 ~]# docker container exec 30f4a81b1a7 apt-get update
@@ -691,47 +691,47 @@
     [root@ip-172-31-44-56 ~]#
     ```
     
-    There will be only one loopback address of 127.0.0.1
+- There will be only one loopback address of 127.0.0.1
     
     ![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/817d10a5-41d7-4b13-a043-8dba6d70f88e)
 
 ----   
 ### Publishing Exposed Ports of Container
 ----    
-    We were discussing an approach to publishing container ports to the host.
+- We were discussing an approach to publishing container ports to the host.
     
     ```python
     docker container run -dt --name webserver -p 80:80 nginx
     ```
     
-    This is also referred to as a publishlist(-p) as it publishes only a list of the port specified.
+- This is also referred to as a publishlist(-p) as it publishes only a list of the port specified.
     
-    There is also a second approach to publish all the exposed ports of the container.
+- There is also a second approach to publish all the exposed ports of the container.
     
     ```python
     docker container run -dt --name webserver -P nginx
     ```
     
-    This is also referred to as a publishall (P).
+- This is also referred to as a publishall (P).
     
-    In this approach, all exposed ports are published to random ports of the host.
+- In this approach, all exposed ports are published to random ports of the host.
     
     ![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/43adcd30-27d5-4e8b-a917-05952400709a)
 
     
 ### Legacy Approach for Linking Containers
     
-    Before the Docker networks feature, you could use the Docker link feature to allow containers to discover each other and securely transfer information about one container to another container.
+- Before the Docker networks feature, you could use the Docker link feature to allow containers to discover each other and securely transfer information about one container to another container.
     
-    The --link flag is a legacy feature of Docker. It may eventually be removed. Unless you absolutely need to continue using it, we recommend that you use user-defined networks to facilitate communication between two containers instead of using --link
+- The --link flag is a legacy feature of Docker. It may eventually be removed. Unless you absolutely need to continue using it, we recommend that you use user-defined networks to facilitate communication between two containers instead of using --link
     
     ```python
     docker container run -dt --link <container name which you wnat to link>:<Alias name> --name <new container name> <ubuntu,busybox..etc> sh
     ```
     
-    The main advantage of this is we can connect the 2 containers like custom bridged networks.
+- The main advantage of this is we can connect the 2 containers like custom bridged networks.
     
-    This is the oldest approach to the connecting bridged network. Now we have a custom bridged network. So no use of this noe.
+- This is the oldest approach to the connecting bridged network. Now we have a custom bridged network. So no use of this noe.
 ----
 - **What is Round robin DNS ?**
 ----
