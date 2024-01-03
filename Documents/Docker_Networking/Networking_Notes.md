@@ -143,7 +143,7 @@
     docker container run -dt --name shriram --network host nginx
     ```
     
-- **Bridged networks**
+### Bridged networks
     
     **WHENEVER YOU CREATE THE NETWORK WITHOUT DEFINING THE NETWORK TYPE AUTOMATICALLY THE DRIVER WILL BE CREATED IN BRIDGED NETWORK**
     
@@ -618,7 +618,7 @@
         }
     ```
     
-- **Host Network**
+### Host Network
     
     This driver removes the network isolation between the docker host and the docker containers to use the host’s networking directly.
     
@@ -633,7 +633,7 @@
     
     Another great advantage of the host network is in the bridge network every container has different eth0 and IP’s this is not good while installing the intrusion detection system.
     
-- **None Network**
+### None Network
     
     If you want to completely disable the networking stack on a container, you can use the none network.
     
@@ -696,7 +696,7 @@
     ![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/817d10a5-41d7-4b13-a043-8dba6d70f88e)
 
     
-- **Publishing Exposed Ports of Container**
+### Publishing Exposed Ports of Container
     
     We were discussing an approach to publishing container ports to the host.
     
@@ -719,7 +719,7 @@
     ![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/43adcd30-27d5-4e8b-a917-05952400709a)
 
     
-- **Legacy Approach for Linking Containers**
+### Legacy Approach for Linking Containers
     
     Before the Docker networks feature, you could use the Docker link feature to allow containers to discover each other and securely transfer information about one container to another container.
     
@@ -733,7 +733,7 @@
     
     This is the oldest approach to the connecting bridged network. Now we have a custom bridged network. So no use of this noe.
 
-- **What is Round robin DNS**
+- **What is Round robin DNS ?**
 
 - Round Robin DNS is a technique used in network management where multiple IP addresses are associated with a single domain name in the DNS records. When a user tries to connect to the domain, the DNS server responds with one of these IP addresses, rotating through them in a circular order. This method is often used for load balancing and fault tolerance.
 
