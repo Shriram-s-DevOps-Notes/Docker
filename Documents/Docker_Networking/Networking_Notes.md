@@ -16,8 +16,6 @@
     In VM also we can observe the different type of networks
     
     ![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/54f593d6-d22c-4824-9f62-a23f66e62204)
-![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/cccb2114-da2a-478d-8ea8-be35bf0142c8)
-![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/e4355224-1b49-47e8-8257-cd49fe007ff7)
 
     
     When you run ifconfig on docker-machine other than system network settings you can also see networking details of **docker0**
@@ -75,7 +73,8 @@
     [root@ip-172-31-89-143 ~]#
     ```
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ee0ac518-e6b5-45fe-87b3-d66eb376fb33/Untitled.png)
+    ![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/1379bcf2-cfa6-4f29-9d2e-f6d4bb9cc6b8)
+
     
     To know about particular networking details
     
@@ -133,7 +132,8 @@
     
     Suppose you have multiple containers that can be identified by the container IP
     
-   ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1fba3520-b9de-4a8d-b5fb-d4dde42fcaeb/Untitled.png)
+   ![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/ae1a4d69-179d-4885-b2bc-182224bb732c)
+
     
     We have container IP "IPv4Address": "172.17.0.2/16", and Gateway IP  **"Gateway": "172.17.0.1". This means if the container wants to communicate with the internet it should contact the gateway.** 
     
@@ -149,8 +149,8 @@
     
     A bridge network uses a software bridge that allows containers connected to the same bridge network to communicate while providing isolation from containers that are not connected to that bridge network.
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cb6c4e05-af7a-436c-83c2-c1d1bd9d7adc/Untitled.png)
-    
+    ![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/203794ea-f0ec-4ff5-9031-c05a861cbf8d)
+
     To check the details about the container run the below command
     
      
@@ -440,7 +440,8 @@
     
     3-bridges means 3 containers are running in the same container.
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/fc65daab-c55b-4b80-84ac-923cb39e7a7e/a99d8c1d-98c7-4f7e-bca4-7a23d66e1388/Untitled.png)
+    ![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/d4489371-b871-4277-bf91-ca33b307e8f4)
+
     
     There are differences between default and user-defined bride. Some of these include:
     
@@ -627,7 +628,8 @@
     
     If you install NGINX inside one container it will directly connect to the outside of the port. This is a disadvantage also because we can’t use port 80 on other containers.
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/fc65daab-c55b-4b80-84ac-923cb39e7a7e/6a066bd1-03bd-4dbe-bf89-32018873f227/Untitled.png)
+    ![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/4d5ababc-955b-4a67-a0a8-c1e35e91805e)
+
     
     Another great advantage of the host network is in the bridge network every container has different eth0 and IP’s this is not good while installing the intrusion detection system.
     
@@ -691,7 +693,8 @@
     
     There will be only one loopback address of 127.0.0.1
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/fc65daab-c55b-4b80-84ac-923cb39e7a7e/2d5d1cee-721a-4ac5-9b39-ebc4e5ee5fac/Untitled.png)
+    ![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/817d10a5-41d7-4b13-a043-8dba6d70f88e)
+
     
 - **Publishing Exposed Ports of Container**
     
@@ -713,7 +716,8 @@
     
     In this approach, all exposed ports are published to random ports of the host.
     
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/fc65daab-c55b-4b80-84ac-923cb39e7a7e/466f2b3e-702e-473e-84f0-8a540b7ca552/Untitled.png)
+    ![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/43adcd30-27d5-4e8b-a917-05952400709a)
+
     
 - **Legacy Approach for Linking Containers**
     
