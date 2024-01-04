@@ -62,3 +62,46 @@ Right side in recent tags copy the version tag code and paste it in the docker c
 ```
 Docker pull python:3.12.0b1
 ```
+### Docker hub in CLI
+---
+Using Docker CLI (Command Line Interface) to interact with Docker Hub allows you to perform various operations like searching, pulling, and pushing images. However, when it comes to filtering results directly in the CLI, the functionality is somewhat limited compared to the web interface of Docker Hub.
+
+Here are some common ways you can use Docker CLI with some level of filtering:
+
+1. **Searching Images**: You can search for images on Docker Hub using the `docker search` command. This command allows basic filtering based on the search string.
+
+   ```bash
+   docker search [OPTIONS] TERM
+   ```
+
+   For example, `docker search ubuntu` will list Docker images related to Ubuntu. However, this search is limited to the image names and descriptions.
+
+2. **Filtering by Stars**: You can use the `--filter` option with `docker search` to filter the search results based on the number of stars. For example, to find Ubuntu images with at least 50 stars:
+
+   ```bash
+   docker search --filter stars=50 ubuntu
+   ```
+
+3. **Automated Builds**: You can filter the search to show only images with automated builds:
+
+   ```bash
+   docker search --filter=is-automated=1 ubuntu
+   ```
+
+4. **Official Images**: To filter your search to only show official images:
+
+   ```bash
+   docker search --filter=is-official=1 ubuntu
+   ```
+
+5. **Limiting Results**: You can limit the number of displayed results using the `--limit` option:
+
+   ```bash
+   docker search --limit 10 ubuntu
+   ```
+
+6. **Using Format for Custom Output**: The `--format` option allows you to define a custom output format, which can be useful for parsing the results:
+
+   ```bash
+   docker search --format "{{.Name}}: {{.Description}}" ubuntu
+   ```
