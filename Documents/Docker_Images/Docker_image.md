@@ -271,4 +271,6 @@ root@ip-172-31-16-115:~# docker image inspect httpd
 | STOPSIGNAL    | Specify the system call signal for exiting a container.              |
 | USER          | Set user and group ID.                                               |
 | VOLUME        | Create volume mounts.                                                |
-| WORKDIR       | Change working directory.  
+| WORKDIR       | Change the working directory.  
+
+- To know more about the docker file parameters visit **https://docs.docker.com/engine/reference/builder/**
