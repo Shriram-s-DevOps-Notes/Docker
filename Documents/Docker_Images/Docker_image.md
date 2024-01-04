@@ -21,12 +21,13 @@ installed
 
 - All writes to the container that add new or modify existing data are stored in this writable layer.
 
-![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/7023a483-50ca-4de0-9e9c-ad024473404e)
+![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/b5df24c0-9135-4292-a905-8d79e109d8cc)
+
 
 
 ### Docker hub
 ---
-Docker Hub is a cloud-based repository service where users can create, test, store and distribute container images. It's a part of Docker's suite of cloud services for building and sharing containerized applications and microservices. Docker Hub allows developers to:
+Docker Hub is a cloud-based repository service where users can create, test, store, and distribute container images. It's a part of Docker's suite of cloud services for building and sharing containerized applications and microservices. Docker Hub allows developers to:
 
 - Store and Share Images
 - Automated Builds
