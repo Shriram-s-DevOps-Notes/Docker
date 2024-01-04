@@ -102,12 +102,12 @@ Here are some common ways you can use Docker CLI with some level of filtering:
 
 6. **Using Format for Custom Output**: The `--format` option allows you to define a custom output format, which can be useful for parsing the results:
 
-   ```bash
+```bash
    docker search --format "{{.Name}}: {{.Description}}" ubuntu
 ```
 
 ### *Docker Image layers*
----
+----
 - Every Docker image consists of read-only layers. These layers represent the Docker image file system and are stacked on top of each other. Each layer is a set of differences from the layer before it.
 
 - When a container is created from an image, Docker adds a new writable layer on top of the read-only layers. This writable layer is often referred to as the "container layer." All changes made to the running container - such as writing new files, modifying existing files, and deleting files - are written to this writable layer.
