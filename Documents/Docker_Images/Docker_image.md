@@ -21,7 +21,7 @@ installed
 
 - All writes to the container that add new or modify existing data are stored in this writable layer.
 
- ![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/7023a483-50ca-4de0-9e9c-ad024473404e)
+![image](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/7023a483-50ca-4de0-9e9c-ad024473404e)
 
 
 ### Docker hub
