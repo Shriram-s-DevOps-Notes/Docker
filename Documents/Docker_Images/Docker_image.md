@@ -25,9 +25,9 @@ installed
 
 
 
-### Docker hub
+### **Docker hub*
 ---
-Docker Hub is a cloud-based repository service where users can create, test, store, and distribute container images. It's a part of Docker's suite of cloud services for building and sharing containerized applications and microservices. Docker Hub allows developers to:
+Docker Hub is a CD-based repository service where users can create, test, store, and distribute container images. It's a part of Docker's suite of cloud services for building and sharing containerized applications and microservices. Docker Hub allows developers to:
 
 - Store and Share Images
 - Automated Builds
@@ -62,7 +62,7 @@ Right side in recent tags copy the version tag code and paste it in the docker c
 ```
 Docker pull python:3.12.0b1
 ```
-### Docker hub in CLI
+### **Docker hub in CLI*
 ---
 Using Docker CLI (Command Line Interface) to interact with Docker Hub allows you to perform various operations like searching, pulling, and pushing images. However, when it comes to filtering results directly in the CLI, the functionality is somewhat limited compared to the web interface of Docker Hub.
 
@@ -112,15 +112,15 @@ Here are some common ways you can use Docker CLI with some level of filtering:
 
 - When a container is created from an image, Docker adds a new writable layer on top of the read-only layers. This writable layer is often referred to as the "container layer." All changes made to the running container - such as writing new files, modifying existing files, and deleting files - are written to this writable layer.
 
-- The read-only layers of an image remain unchanged throughout the lifecycle of the image. When multiple containers are spawned from the same image, they all share the image's read-only layers but have their own individual writable layers.
+- The read-only layers of an image remain unchanged throughout the lifecycle of the image. When multiple containers are spawned from the same image, they all share the image's read-only layers but have their writable layers.
 
 - This architecture helps to efficiently manage storage space and enables quick start-up times for containers, as only the new writable layer needs to be created for each new container.
 
-- To check the image layers run command
+- To check the image layers run the command
 ```
 docker history <image-name>:<image-tag>
 ```
-Example: Below is an example for Image layers. Official HTTPD package has 15 Layers.
+Example: Below is an example for Image layers. The official HTTPD package has 15 Layers.
 ```
 root@ip-172-31-16-115:~# docker history httpd:latest
 IMAGE          CREATED        CREATED BY                                      SIZE      COMMENT
@@ -141,7 +141,7 @@ IMAGE          CREATED        CREATED BY                                      SI
 <missing>      2 months ago   /bin/sh -c #(nop) ADD file:ac3cd70031d35e46d…   74.8MB    
 root@ip-172-31-16-115:~# 
 ```
-- To know the metadata of the one image run the command
+- To know the metadata of one image run the command
 ```
 docker image inspect <image-name>
 ```
