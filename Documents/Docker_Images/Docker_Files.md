@@ -138,22 +138,3 @@ Output = /a/b/c
 In simple words, the docker workspace is the folder that you want to be in when you log into the container.
 
 It will not only take you to the specific folder but it also adds the files that you mentioned in the docker file.
-
-Example-1:
-```
-FROM busybox
-RUN mkdir /root/demo  #Before mentioning the workdir we need to create it
-WORKDIR /root/demo  # Whenever the user gets login to this container he will be taken to this path
-RUN touch add.txt #This will be created under workdir path
-CMD ["/bin/sh"]
-```
-Example-2
-```
-FROM busybox
-RUN mkdir -p /root/demo/context1/context2
-WORKDIR /root/demo
-WORKDIR context1
-WORKDIR context2
-RUN touch file01.txt
-CMD ["/bin/sh"]
-```
