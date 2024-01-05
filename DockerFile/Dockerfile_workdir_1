@@ -1,0 +1,5 @@
+FROM busybox
+RUN mkdir /root/demo  #Before mentioning the workdir we need to create it
+WORKDIR /root/demo  # Whenever the user gets login to this container he will be taken to this path
+RUN touch add.txt #This will be created under workdir path
+CMD ["/bin/sh"]
