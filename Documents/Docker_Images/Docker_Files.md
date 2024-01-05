@@ -72,7 +72,7 @@ ubuntu         14.04     13b66b487594   2 years ago      197MB
 ---
 - COPY takes in a source and destination. It only lets you copy in a local file or directory from your host
 
-ADD lets you do that too, but it also supports 2 other sources.
+- ADD lets you do that too, but it also supports 2 other sources.
 
 1. First, you can use a URL instead of a local file/directory.
 2. Secondly, you can extract a tar file from the source directly into the destination
@@ -88,4 +88,72 @@ Below, we will get 3 layers of work that will increase the container size.
 ADD http://example.com/big.tar.xz /usr/src/things/
 RUN tar -xJf /usr/src/things/big.tar.xz -C /usr/src/things
 RUN make -C /usr/src/things all
+```
+### *Expose instruction:*
+----
+- The EXPOSE instruction informs Docker that the container listens on the specified network ports at runtime. The EXPOSE instruction does not publish the port.
+- It functions as a type of documentation between the person who builds the image and the person who runs the container, about which ports are intended to be published.
+### **Health check instruction:**
+---
+- HEALTHCHECK instruction Docker allows us to tell the platform how to test that our application is healthy.
+- When Docker starts a container, it monitors the process that the container runs. If the process ends, the container exits.
+- We can specify certain options before the CMD operation, these include:
+```HEALTHCHECK --interval=DURATION CMD ping -c 1 <IP ADDRESS>```
+
+**Health check options:**
+
+- -interval=DURATION (default: 30s)
+- -timeout=DURATION (default: 30s)
+- -start-period=DURATION (default: 0s)
+- -retries=N (default: 3)
+
+- As I mentioned earlier the health check command will based on possible values
+
+0—>success
+
+1—>failure
+
+2—>reserved
+
+### *WORKDIR Instruction:*
+---
+- The WORKDIR instruction sets the working directory for any RUN, CMD, ENTRYPOINT, COPY, and ADD instructions that follow it in the Dockerfile.
+- The WORKDIR instruction can be used multiple times in a Docker file
+
+![Untitled](https://github.com/Shriram-s-DevOps-Notes/Docker/assets/110009356/78e785e5-c31d-4081-99ef-443d259e710d)
+
+
+Sample Snippet:
+```
+WORKDIR /a
+
+WORKDIR b
+
+WORKDIR c
+
+RUN pwd
+
+Output = /a/b/c
+```
+In simple words, the docker workspace is the folder that you want to be in when you log into the container.
+
+It will not only take you to the specific folder but it also adds the files that you mentioned in the docker file.
+
+Example-1:
+```
+FROM busybox
+RUN mkdir /root/demo  #Before mentioning the workdir we need to create it
+WORKDIR /root/demo  # Whenever the user gets login to this container he will be taken to this path
+RUN touch add.txt #This will be created under workdir path
+CMD ["/bin/sh"]
+```
+Example-2
+```
+FROM busybox
+RUN mkdir -p /root/demo/context1/context2
+WORKDIR /root/demo
+WORKDIR context1
+WORKDIR context2
+RUN touch file01.txt
+CMD ["/bin/sh"]
 ```
