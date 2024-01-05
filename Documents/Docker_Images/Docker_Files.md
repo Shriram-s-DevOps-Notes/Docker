@@ -1,9 +1,17 @@
 # *Docker file*
----
+
 - Docker can build images automatically by reading the instructions from a Dockerfile. 
 - A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. 
+- The format of the Docker file is similar to the below syntax:
 
- The Dockerfile supports the following instructions:                                 
+INSTRUCTION arguments
+
+- A Docker file must start with a **FROM** instruction.
+
+- The FROM instruction specifies the Base Image from which you are building.
+
+Multiple INSTRUCTIONS are available in the Docker file, some of these include:
+                              
 | Instruction   | Description                                                          |
 |---------------|----------------------------------------------------------------------|
 | ADD           | Add local or remote files and directories.                          |
@@ -60,3 +68,24 @@ centos         7         eeb6ee3f44bd   2 years ago      204MB
 ubuntu         14.04     13b66b487594   2 years ago      197MB
 ```
 - Now you can create a container using this image.
+### *Difference between copy and add:*
+---
+- COPY takes in a source and destination. It only lets you copy in a local file or directory from your host
+
+ADD lets you do that too, but it also supports 2 other sources.
+
+1. First, you can use a URL instead of a local file/directory.
+2. Secondly, you can extract a tar file from the source directly into the destination
+
+- Basically, the ADD command will unzip and add it to the destination path.
+
+- Even though the add command will decompress the file it is recommended to use the curl command.
+
+- Using ADD to fetch packages from remote URLs is strongly discouraged; you should use curl or wget instead.
+
+Below, we will get 3 layers of work that will increase the container size.
+```
+ADD http://example.com/big.tar.xz /usr/src/things/
+RUN tar -xJf /usr/src/things/big.tar.xz -C /usr/src/things
+RUN make -C /usr/src/things all
+```
