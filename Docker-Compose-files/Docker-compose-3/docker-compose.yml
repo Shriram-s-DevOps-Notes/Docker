@@ -1,0 +1,40 @@
+version: '3'
+# Specifies the version of Docker Compose file syntax. Version 3 is widely used and recommended.
+
+services:
+  # Defines the different services (containers) that make up your application.
+
+  jenkins:
+    # This is the service name, here it's 'jenkins', but you can name it anything.
+
+    container_name: jenkins
+    # Sets a custom name for the running container. This name can be used for referencing the container in Docker commands.
+
+    image: jenkins/jenkins
+    # Specifies which Docker image to use for this service. 
+    # In this case, it uses the official Jenkins image.
+
+    ports:
+      - "8080:8080"
+      # Maps a port from the Docker host to the Docker container.
+      # Format: [HOST_PORT]:[CONTAINER_PORT]. Here, it maps port 8080 of the container to port 8080 on the host.
+      # This allows you to access the Jenkins server via port 8080 on your host machine.
+
+    volumes:
+      - "$PWD/jenkins_home:/var/jenkins_home"
+      # Mounts a volume from your host to the Docker container.
+      # Format: [HOST_PATH]:[CONTAINER_PATH]. 
+      # '$PWD/jenkins_home' is a directory on your host. 
+      # '/var/jenkins_home' is the directory in the container where Jenkins stores its data.
+      # This setup persists Jenkins data across container restarts and deletions.
+
+    networks:
+      - net
+      # Connects the container to a custom network named 'net'.
+      # This is useful for connecting multiple containers in a custom network.
+
+networks:
+  net:
+  # Defines a custom network named 'net'. 
+  # Containers connected to this network can communicate with each other.
+
