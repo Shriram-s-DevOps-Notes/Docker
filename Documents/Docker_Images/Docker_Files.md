@@ -137,4 +137,45 @@ Output = /a/b/c
 ```
 In simple words, the docker workspace is the folder that you want to be in when you log into the container.
 
-It will not only take you to the specific folder but it also adds the files that you mentioned in the docker file.
+It will not only take you to the specific folder but also add the files you mentioned in the docker file.
+### *CMD*
+---
+- The `CMD` instruction in a Dockerfile is used to specify the default command that should be executed when a container starts. It sets the initial command that will be run when you run a container based on the Docker image.
+
+Here's the basic syntax:
+
+```Dockerfile
+CMD ["executable", "param1", "param2"]
+```
+
+For example, if you're using an NGINX image, a common `CMD` might look like this:
+
+```Dockerfile
+CMD ["nginx", "-g", "daemon off;"]
+```
+
+Breaking it down:
+
+- `nginx` is the executable.
+- `-g` specifies a global configuration option.
+- `daemon off;` is a configuration option telling NGINX to run in the foreground instead of the default daemon mode.
+
+- When you run a container from an image with a `CMD` instruction, it automatically executes the specified command. If you run the container without specifying a different command, the one specified in `CMD` is used.
+
+For example:
+
+```bash
+docker run -d your-nginx-image
+```
+
+This will run the NGINX container with the default command specified in the `CMD` instruction.
+
+You can also override the `CMD` by specifying a command when running the container. For instance:
+
+```bash
+docker run -d your-nginx-image some-other-command
+```
+
+In this case, `some-other-command` will be executed instead of the default command specified in the `CMD` instruction.
+
+**It's important to note that a Dockerfile can have only one `CMD` instruction. If there are multiple `CMD` instructions, only the last one will take effect. If you need to run multiple commands, use a shell script or a process manager within your container.**
